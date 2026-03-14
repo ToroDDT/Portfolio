@@ -1,0 +1,176 @@
+.resume-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(12px, 3vw, 24px);
+    animation: overlayIn 0.2s ease both;
+}
+
+@keyframes overlayIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.resume-container {
+    width: min(860px, 100%);
+    height: min(90dvh, 900px);
+    background: #ffffff;
+    border: 1.5px solid #e2e8f8;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow:
+            0 24px 80px rgba(37, 99, 235, 0.18),
+            0 0 0 1px rgba(37, 99, 235, 0.06);
+    display: flex;
+    flex-direction: column;
+    animation: modalIn 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.resume-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 20px;
+    background: #f8faff;
+    border-bottom: 1px solid #e2e8f8;
+    flex-shrink: 0;
+    position: relative;
+}
+
+
+
+.resume-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.92rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0f172a;
+}
+
+.resume-title-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    background: linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #06b6d4 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.resume-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* ── Download button ── */
+.resume-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #06b6d4 100%);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.2);
+}
+
+.resume-download-btn:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+/* ── Close button ── */
+.resume-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1.5px solid #e2e8f8;
+    border-radius: 8px;
+    color: #64748b;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.resume-close-btn:hover {
+    background: #fef2f2;
+    border-color: #fca5a5;
+    color: #ef4444;
+}
+
+/* ── PDF iframe ── */
+.resume-body {
+    flex: 1;
+    overflow: hidden;
+    background: #e8edf5;
+}
+
+.resume-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* ── Mobile: bottom sheet ── */
+@media (max-width: 600px) {
+    .resume-overlay {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .resume-container {
+        width: 100%;
+        height: 95dvh;
+        border-radius: 20px 20px 0 0;
+        animation: sheetIn 0.3s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+    }
+
+    @keyframes sheetIn {
+        from { transform: translateY(100%); }
+        to   { transform: translateY(0); }
+    }
+
+    .resume-download-btn span {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .resume-overlay,
+    .resume-container {
+        animation: none;
+    }
+}
