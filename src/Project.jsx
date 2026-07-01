@@ -5,7 +5,8 @@ const PROJECTS = [
     name: "MTG_DECKBUILDER",
     desc: "A magic the gathering deckbuilding app and companion, browse, search, and catalog your favorite decks",
     tags: ["Spring Boot", "Java", "Full-Stack", "HTMX", "SQL", "Postgres", "Thymleaf"],
-    live: "java-mtg-deckbuilder-production.up.railway.app", github: "https://github.com/ToroDDT/Java-MTG-Deckbuilder"
+    live: "https://java-mtg-deckbuilder-production.up.railway.app",
+    github: "https://github.com/ToroDDT/Java-MTG-Deckbuilder"
   },
   {
     num: "02",
